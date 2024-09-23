@@ -1,5 +1,4 @@
 from fastapi import FastAPI, BackgroundTasks
-from pydantic import BaseModel
 from fastapi.staticfiles import StaticFiles
 import requests
 import json
@@ -10,9 +9,6 @@ app = FastAPI()
 PUBLIC_FOLDER = "./app/media"
 app.mount("/media", StaticFiles(directory=PUBLIC_FOLDER), name="fsdf")
 
-
-class FetchDetailsRequest(BaseModel):
-    title: str  # For fetching YouTube data
 
 
 @app.get("/")
